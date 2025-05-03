@@ -1,12 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-	<title>Ecommerce Home</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scatch | Login & Register</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-zinc-800 text-white">
-	;
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <div class="bg-white shadow-lg rounded-xl w-full max-w-md">
+    <div class="flex">
+      <button onclick="switchTab('login')" id="loginTab"
+        class="w-1/2 py-3 font-semibold text-center bg-gray-800 text-white rounded-tl-xl">Login</button>
+      <button onclick="switchTab('register')" id="registerTab"
+        class="w-1/2 py-3 font-semibold text-center bg-gray-200 text-gray-800 rounded-tr-xl">Register</button>
+    </div>
+    <div class="p-6">
+      <!-- Login Form -->
+      <form id="loginForm" method="POST" action="/login" class="space-y-4">
+        <h2 class="text-2xl font-bold text-center mb-4">Welcome to Scatch</h2>
+        <input type="email" name="email" placeholder="Email"
+          class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-400"
+          required />
+        <input type="password" name="password" placeholder="Password"
+          class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-400"
+          required />
+        <button type="submit"
+          class="w-full bg-gray-800 text-white py-2 rounded-md hover:bg-gray-900">Login</button>
+      </form>
+
+      <!-- Register Form -->
+      <form id="registerForm" method="POST" action="/register" class="space-y-4 hidden">
+        <h2 class="text-2xl font-bold text-center mb-4">Create an Account</h2>
+        <input type="text" name="name" placeholder="Full Name"
+          class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-400"
+          required />
+        <input type="email" name="email" placeholder="Email"
+          class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-400"
+          required />
+        <input type="password" name="password" placeholder="Password"
+          class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-400"
+          required />
+        <button type="submit"
+          class="w-full bg-gray-800 text-white py-2 rounded-md hover:bg-gray-900">Register</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function switchTab(tab) {
+      const loginTab = document.getElementById('loginTab');
+      const registerTab = document.getElementById('registerTab');
+      const loginForm = document.getElementById('loginForm');
+      const registerForm = document.getElementById('registerForm');
+
+      if (tab === 'login') {
+        loginTab.classList.add('bg-gray-800', 'text-white');
+        loginTab.classList.remove('bg-gray-200', 'text-gray-800');
+        registerTab.classList.remove('bg-gray-800', 'text-white');
+        registerTab.classList.add('bg-gray-200', 'text-gray-800');
+        loginForm.classList.remove('hidden');
+        registerForm.classList.add('hidden');
+      } else {
+        registerTab.classList.add('bg-gray-800', 'text-white');
+        registerTab.classList.remove('bg-gray-200', 'text-gray-800');
+        loginTab.classList.remove('bg-gray-800', 'text-white');
+        loginTab.classList.add('bg-gray-200', 'text-gray-800');
+        registerForm.classList.remove('hidden');
+        loginForm.classList.add('hidden');
+      }
+    }
+  </script>
 </body>
 </html>
