@@ -1,14 +1,9 @@
 const express = require("express");
 const router = express.Router();
-// const isloggedin = require("../middlewares/isLoggedIn");
 
 router.get("/", function (req, res) {
-  let error = 0;
-  res.render("index", { error });
+  res.render("index", { error : req.flash("error"), greet : req.flash("greet") });
 });
 
-// router.get("/shop", isloggedin, function (req, res) {
-//   res.render("shop");
-// });
 
 module.exports = router;

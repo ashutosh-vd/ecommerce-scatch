@@ -1,24 +1,45 @@
 const express = require('express');
-const app = express();
-
+var flash = require('connect-flash');
+var app = express();
+var session = require('express-session') 
 const cookieParser = require("cookie-parser");
 const path = require("path")
+require("./config/mongoose-connection")
+const debug = require('debug')("development:server")
 
-const db = require("./config/mongoose-connection")
-
+app.use(cookieParser());
+app.use(
+	session({
+		resave: false,
+		saveUninitialized: false,
+		secret: "shh",
+	})
+);
+app.use(flash());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-app.use(cookieParser());
+// eslint-disable-next-line no-undef
 app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
 
 const userRoute = require("./routes/user")
 const productRoute = require('./routes/products')
 const ownerRoute = require('./routes/owner')
+const indexRoute = require('./routes/index');
+const { loginUser, registerUser, logoutUser } = require('./controller/authController');
+
 app.use('/users', userRoute);
 app.use('/products', productRoute);
 app.use('/owner', ownerRoute);
-const indexRoute = require('./routes/index')
-app.get('/' , indexRoute)
+app.use('/', indexRoute);
 
-app.listen(3000);
+app.post('/register', registerUser);
+app.post('/login', loginUser);
+app.get('/logout', logoutUser);
+
+app.listen(3000, (err) => {
+	if(err)
+		debug(err.message);
+	else 
+		debug("server connected");
+});

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scatch Shop</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans text-gray-800">
+
+  <!-- Fixed Navbar -->
+  <header class="fixed top-0 left-0 right-0 h-20 bg-white shadow z-50 flex justify-between items-center p-6 border-b">
+    <h1 class="text-2xl font-bold">Shop.</h1>
+    <nav class="space-x-6 text-sm font-medium">
+      <a href="#" class="hover:underline">Home</a>
+      <a href="#" class="hover:underline">Products</a>
+      <a href="#" class="hover:underline">Cart</a>
+      <a href="#" class="hover:underline">My account</a>
+    </nav>
+  </header>
+
+  <!-- Fixed Sidebar -->
+  <aside class="fixed top-20 left-0 w-64 h-[calc(100vh-24px)] bg-gray-50 border-r p-6 text-sm overflow-y-auto 
+								flex flex-col pb-24 justify-between">
+    <div class="flex flex-col gap-7">
+			<div>
+				<p class="font-semibold mb-2">Sort by:</p>
+				<select class="border rounded px-2 py-1 w-full">
+					<option>Popular</option>
+					<option>Trending</option>
+					<option>Newcomers</option>
+				</select>
+			</div>
+	
+			<div>
+				<p class="font-semibold mb-2">Collection</p>
+				<ul class="space-y-1">
+					<li class="hover:underline">New Collection</li>
+					<li class="font-bold">All Products</li>
+					<li class="hover:underline">Discounted Products</li>
+				</ul>
+			</div>
+		</div>
+
+    <div>
+      <p class="font-semibold mb-2">Filter by:</p>
+      <ul class="space-y-1">
+        <li class="hover:underline">Availability</li>
+        <li class="hover:underline">Discount</li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="ml-64 pt-24 p-10 px-24 grid gap-12 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 grid-rows-2 auto-rows-fr">
+  <!-- Product Card 1 -->
+  <div class="bg-rose-100 p-4 rounded h-[calc(50vh-64px)] flex flex-col justify-between">
+    <img src="https://via.placeholder.com/200x200" class="mx-auto object-contain" />
+    <div class="mt-4 flex justify-between items-center">
+      <div>
+        <p class="font-semibold text-lg">Clinge Bag</p>
+        <p>₹1200</p>
+      </div>
+      <button class="text-2xl bg-white w-8 h-8 rounded-full flex items-center justify-center">+</button>
+    </div>
+  </div>
+	<div class="bg-rose-100 p-4 rounded h-[calc(50vh-64px)] flex flex-col justify-between">
+    <img src="https://via.placeholder.com/200x200" class="mx-auto object-contain" />
+    <div class="mt-4 flex justify-between items-center">
+      <div>
+        <p class="font-semibold text-lg">Clinge Bag</p>
+        <p>₹1200</p>
+      </div>
+      <button class="text-2xl bg-white w-8 h-8 rounded-full flex items-center justify-center">+</button>
+    </div>
+  </div>
+	<div class="bg-rose-100 p-4 rounded h-[calc(50vh-64px)] flex flex-col justify-between">
+    <img src="https://via.placeholder.com/200x200" class="mx-auto object-contain" />
+    <div class="mt-4 flex justify-between items-center">
+      <div>
+        <p class="font-semibold text-lg">Clinge Bag</p>
+        <p>₹1200</p>
+      </div>
+      <button class="text-2xl bg-white w-8 h-8 rounded-full flex items-center justify-center">+</button>
+    </div>
+  </div>
+	<div class="bg-rose-100 p-4 rounded h-[calc(50vh-64px)] flex flex-col justify-between">
+    <img src="https://via.placeholder.com/200x200" class="mx-auto object-contain" />
+    <div class="mt-4 flex justify-between items-center">
+      <div>
+        <p class="font-semibold text-lg">Clinge Bag</p>
+        <p>₹1200</p>
+      </div>
+      <button class="text-2xl bg-white w-8 h-8 rounded-full flex items-center justify-center">+</button>
+    </div>
+  </div>
+	<div class="bg-rose-100 p-4 rounded h-[calc(50vh-64px)] flex flex-col justify-between">
+    <img src="https://via.placeholder.com/200x200" class="mx-auto object-contain" />
+    <div class="mt-4 flex justify-between items-center">
+      <div>
+        <p class="font-semibold text-lg">Clinge Bag</p>
+        <p>₹1200</p>
+      </div>
+      <button class="text-2xl bg-white w-8 h-8 rounded-full flex items-center justify-center">+</button>
+    </div>
+  </div>
+	</main>
+
+</body>
+</html>
