@@ -29,7 +29,7 @@ const indexRoute = require('./routes/index');
 const { loginUser, registerUser, logoutUser } = require('./controller/authController');
 
 app.use('/users', userRoute);
-app.use('/products', productRoute);
+app.use('/shop', productRoute);
 app.use('/owner', ownerRoute);
 app.use('/', indexRoute);
 

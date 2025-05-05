@@ -35,9 +35,9 @@
 			<div>
 				<p class="font-semibold mb-2">Collection</p>
 				<ul class="space-y-1">
-					<li class="hover:underline">New Collection</li>
-					<li class="font-bold">All Products</li>
-					<li class="hover:underline">Discounted Products</li>
+					<li class="hover:underline" onclick="handleClick(event)">New Collection</li>
+					<li class="active font-bold" onclick="handleClick(event)">All Products</li>
+					<li class="hover:underline" onclick="handleClick(event)">Discounted Products</li>
 				</ul>
 			</div>
 		</div>
@@ -45,8 +45,8 @@
     <div>
       <p class="font-semibold mb-2">Filter by:</p>
       <ul class="space-y-1">
-        <li class="hover:underline">Availability</li>
-        <li class="hover:underline">Discount</li>
+        <li class="hover:underline" onclick="handleClick(event)">Availability</li>
+        <li class="hover:underline" onclick="handleClick(event)">Discount</li>
       </ul>
     </div>
   </aside>
@@ -107,4 +107,15 @@
 	</main>
 
 </body>
+<script>
+  const handleClick = (e) => {
+    const le = e.target.parentElement.children;
+    Array.from(le).forEach((element) => {
+      element.classList.remove("active", "font-bold")
+      element.classList.add("hover:underline");
+    })
+    e.target.classList.remove("hover:underline");
+    e.target.classList.add("active", "font-bold");
+  }
+</script>
 </html>

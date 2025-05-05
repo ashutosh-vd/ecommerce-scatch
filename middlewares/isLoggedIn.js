@@ -1,7 +1,9 @@
 const usermodel = require('../models/usermodel');
 const jwt = require("jsonwebtoken")
+const debug = require('debug')("development:tokens")
 
 module.exports.isLoggedIn = async (req, res, next) => {
+	debug(req.cookies.token);
 	if(!req.cookies.token) {
 		req.flash("error", "Please Login First");
 		return res.redirect('/');

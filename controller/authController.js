@@ -8,7 +8,7 @@ module.exports.registerUser = async (req , res) => {
 		let user=await userModel.findOne({email : email});
 		if(user) {
 			req.flash("error", "You already have an account, please login.");
-      return res.redirect("/");
+      		return res.redirect("/");
 		}
 		bcrypt.hash(password, 10, async (err, hash) => {
 			if(err) {
@@ -25,7 +25,7 @@ module.exports.registerUser = async (req , res) => {
 				res.cookie("token", token);
 
 				req.flash("greet", "Welcome User, Nice to Meet You");
-				res.redirect('/');
+				res.redirect('/shop');
 			}
 		})
 	}
@@ -42,15 +42,15 @@ module.exports.loginUser = async (req, res) => {
 		return res.redirect('/');
 	}
 	try {
-		bcrypt.compare(password, user.password, (err, result) => {
+		bcrypt.compare(password, user.password, async (err, result) => {
 			if(err) {
 				return res.status(500).send(err.message);
 			}
 			if(result) {
-				var token = generateToken(user);
+				var token = await generateToken(user);
 				res.cookie("token", token);
 				req.flash("greet", "Welcome user");
-				return res.redirect('/');
+				return res.redirect('/shop');
 			} else {
 				req.flash("error" , "wrong email or password");
 				return res.redirect('/');

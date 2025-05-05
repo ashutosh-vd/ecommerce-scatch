@@ -10,15 +10,15 @@ const productSchema = mongoose.Schema({
 	},
 	bgcolor: {
 		type: String,
-		default: white,
+		default: "#ffffff",
 	},
 	panelcolor: {
 		type: String,
-		default: white,
+		default: "#ffffff",
 	},
 	textcolor: {
 		type: String,
-		default: black,
+		default: "black",
 	},
 
 })
